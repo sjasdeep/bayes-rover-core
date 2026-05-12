@@ -1,0 +1,17 @@
+# Grid and time resolutions for building GridInputs, GridSets, and GridValues.
+#
+# Structure:
+#   SystemName:
+#     InputName:              # or 'default'
+#       state_resolution: [nx, ny, nz, ...]
+#       time_resolution: nt
+
+RoverDark:
+  RoverDark_MPC:
+    state_resolution: [100, 100, 100]
+    time_resolution: 100
+  
+  default:
+    state_resolution: [100, 100, 100]
+    time_resolution: 100
+

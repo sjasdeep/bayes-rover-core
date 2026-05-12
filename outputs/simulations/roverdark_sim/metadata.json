@@ -1,0 +1,15 @@
+{
+  "tag": "roverdark_sim",
+  "description": "RoverDark MPC under Uncertainty",
+  "created_at": "2026-03-13T14:32:51.174675+00:00",
+  "system_name": "RoverDark",
+  "control_name": "GridInput",
+  "disturbance_name": "ZeroInput",
+  "uncertainty_name": "OptimalInputFromValue",
+  "dt": 0.01,
+  "steps": 500,
+  "time_horizon": 5.0,
+  "n_trajectories": 6,
+  "device": "cpu",
+  "initial_states_grid_meta": null
+}

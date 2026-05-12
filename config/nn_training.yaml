@@ -1,0 +1,52 @@
+# NN training config
+# Per-system defaults with optional overrides.
+# source:
+#   input_class: Any Input class name
+#                e.g., ZeroInput, RoverDark_MPC, OptimalInputFromValue, NNInput, ...
+#   input_tag: TAG                 # required for cache-backed classes:
+#                                  #   - GridInput: tag in .cache/grid_inputs/{TAG}.pkl
+#                                  #   - OptimalInputFromValue: GridValue tag in .cache/grid_values/{TAG}.pkl
+#                                  #   - NNInput: tag in .cache/nn_inputs/{TAG}.{pth,meta.json}
+#   type: control | disturbance | uncertainty
+# Sampling:
+#   num_samples: int               # if omitted and GridInput -> use ALL grid points
+#                                  # if omitted and not GridInput -> error
+# Output:
+#   tag: TAG                       # save to .cache/nn_inputs/{TAG}.{pth,meta.json}
+
+RoverDark:
+  default:
+    source:
+      input_class: GridInput
+      input_tag: RoverDark_MPC
+      type: control
+    model: {hidden: 128, layers: 2}
+    train:
+      epochs: 1000000
+      batch_size: 100000
+      lr: 0.01
+      checkpoint:
+        enable: true            # enable/disable checkpointing
+        frequency: 10000            # save every N epochs
+        save_last: true         # write last.pth
+        save_best: true         # write best.pth when metric improves
+        save_history: false     # also write epoch-XXXX.pth snapshots
+        keep_last_n: 0          # if save_history, keep only last N snapshots (0 = unlimited)
+  # dir: .cache/nn_inputs/checkpoints/{SYSTEM}/{TAG}  # optional override
+        resume: true           # auto-resume from last.pth if present
+        # path: /abs/path/to/checkpoint.pth                 # optional explicit resume path
+    tag: RoverDark_MPC_NN
+    logging:
+      wandb:
+        enable: true
+        project: rover-core
+        visualize:
+          enable: true           # enable 2D grid visualization to W&B
+          every_n_epochs: 10000     # log every N epochs (also logs on final epoch)
+          state_axes: [0, 1]     # which two state dimensions to vary
+          grid_resolution: 100   # int or [nx, ny]
+          time: mid              # 'mid' of time horizon or a numeric value
+          output_index: 0        # which output channel to plot
+          matplotlib_backend: Agg # force non-interactive backend (avoid X11)
+    presets:
+      quick: {train: {epochs: 2}, num_samples: 2000}

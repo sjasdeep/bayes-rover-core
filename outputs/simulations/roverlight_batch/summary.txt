@@ -1,0 +1,15 @@
+Simulation Summary: roverlight_batch
+==================================================
+
+System: RoverLight
+Control: RoverLight_BRTScheduledLight
+Disturbance: ZeroInput
+Uncertainty: RoverLight_WorstCaseUncertaintyFromValue
+
+Time horizon: 5.00s
+Time step (dt): 0.0100s
+Simulation steps: 500
+Trajectories: 6
+
+Created: 2026-03-13T14:38:20.873008+00:00
+Description: RoverLight with BRT-based light scheduling

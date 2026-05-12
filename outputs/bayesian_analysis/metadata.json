@@ -1,0 +1,37 @@
+{
+  "n_error_samples": 6000,
+  "error_means": [
+    -0.06581215201908101,
+    -0.02812930702495699,
+    -0.007929669144505169
+  ],
+  "error_stds": [
+    0.1516274920399557,
+    0.17264125335529587,
+    0.02855837175690832
+  ],
+  "dims": [
+    "px_error",
+    "py_error",
+    "theta_error"
+  ],
+  "posterior_mu_mean": [
+    -0.06592257585560726,
+    -0.02808634017446626,
+    -0.00798576104579304
+  ],
+  "posterior_sigma_mean": [
+    0.15161401132330174,
+    0.17257856642231753,
+    0.02856157621259666
+  ],
+  "fitted_gains": {
+    "k_py": -0.05038993060588837,
+    "k_theta": 0.0653359591960907
+  },
+  "n_posterior_samples": 150,
+  "n_rollouts_per_sample": 100,
+  "failure_bound_py": 1.5,
+  "model_type": "pymc",
+  "hj_available": false
+}

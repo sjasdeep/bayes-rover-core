@@ -1,0 +1,22 @@
+# System configuration presets for build_grid_value.py
+#
+# Structure:
+#   SystemName:
+#     presets:
+#       preset_name:
+#         description: "What this preset does"
+#         system_args:
+#           key: value
+#           ...
+#
+# Usage:
+#   --preset NAME           Load system_args from preset
+#   --system-arg KEY=VALUE  Override or add individual args (can repeat)
+
+RoverDark:
+  presets:
+    recursive_brt:
+      description: "Use precomputed nominal BRT as failure function (for recursive verification)"
+      system_args:
+        failure_grid_value_tag: RoverDark_Nominal
+

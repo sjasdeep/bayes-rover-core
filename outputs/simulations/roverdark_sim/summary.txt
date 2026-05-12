@@ -1,0 +1,15 @@
+Simulation Summary: roverdark_sim
+==================================================
+
+System: RoverDark
+Control: GridInput
+Disturbance: ZeroInput
+Uncertainty: OptimalInputFromValue
+
+Time horizon: 5.00s
+Time step (dt): 0.0100s
+Simulation steps: 500
+Trajectories: 6
+
+Created: 2026-03-13T14:32:51.174675+00:00
+Description: RoverDark MPC under Uncertainty

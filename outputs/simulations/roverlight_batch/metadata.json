@@ -1,0 +1,15 @@
+{
+  "tag": "roverlight_batch",
+  "description": "RoverLight with BRT-based light scheduling",
+  "created_at": "2026-03-13T14:38:20.873008+00:00",
+  "system_name": "RoverLight",
+  "control_name": "RoverLight_BRTScheduledLight",
+  "disturbance_name": "ZeroInput",
+  "uncertainty_name": "RoverLight_WorstCaseUncertaintyFromValue",
+  "dt": 0.01,
+  "steps": 500,
+  "time_horizon": 5.0,
+  "n_trajectories": 6,
+  "device": "cpu",
+  "initial_states_grid_meta": null
+}

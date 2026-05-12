@@ -1,0 +1,39 @@
+# This file configures how GridInputs, GridSets, and GridValues should be visualized.
+# Multiple visualization presets can be defined.
+#
+# Structure:
+#   SystemName:
+#     InputName:
+#       preset_name:
+#         resolution: [res_dim0, res_dim1, res_dim2, ...]  # Visualization sampling resolution
+#         slices:  # List of 2D slices to generate
+#           - dims: [0, 1]  # Which dimensions to plot (x, y axes)
+#             fixed: {2: 0.0}  # Fixed values for other dimensions {dim: value}
+#             times: [0.0, 2.5, 5.0, 7.5, 10.0]  # Time points to visualize
+#             title: "XY Plane"  # Optional custom title
+#
+# When using exact grid lookup (interpolate=False, the default), the 'resolution'
+# parameter is IGNORED. Instead, the actual cached grid points are used for perfect alignment.
+
+RoverDark:
+  
+  default:
+    default:
+      resolution: [100, 100, 100]
+      slices:
+        - dims: [0, 1]  # x vs y
+          fixed: {2: 0.0}  # heading = 0
+          times: [1.5]
+          title: "Position (x,y) at heading=0"
+        - dims: [0, 1]  # x vs y
+          fixed: {2: 0.0}  # heading = 0
+          times: [2.5]
+          title: "Position (x,y) at heading=0"
+        - dims: [0, 2]  # x vs heading
+          fixed: {1: 0.0}  # y = 0
+          times: [0.0]
+          title: "Position x vs Heading at y=0"
+        - dims: [1, 2]  # y vs heading
+          fixed: {0: 0.0}  # x = 0
+          times: [0.0]
+          title: "Position y vs Heading at x=0"
